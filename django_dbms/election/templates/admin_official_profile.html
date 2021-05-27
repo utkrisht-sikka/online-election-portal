@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+<!--<link href="{% static 'css/election_official_page.css'%}" rel="stylesheet" type="text/css">-->
+{% endblock %}
+{% block content %}
+
+<div class="admin-form">
+    <form class="admin-form" action="{% url 'admin_official_profile' %}" , method="post">
+       {% csrf_token %}
+        <h1>Admin Official updates BioData of Candidate</h1>
+        <p>
+          <label for = "candidate_id"> Enter candidate_id :</label>
+          <input type = "number" name = "candidate_id" id = "candidate_id" required>
+        </p>
+        <p>
+          <label for = "wealth"> Enter wealth of candidate :</label>
+          <input type = "number" name = "wealth" id = "wealth" required>
+        </p>
+        <p>
+          <label for = "criminal_cases"> Enter Criminal Cases :</label>
+          <input type = "text" name = "criminal_cases" id = "criminal_cases" required>
+        </p>
+        <p>
+          <label for = "updated_year"> Updated Year :</label>
+          <input type = "number" name = "updated_year" id = "updated_year" required>
+        </p>
+        <p>
+          <input type="submit" name="submit" value="Submit Details">
+        </p>
+      </form>
+</div>
+{% endblock%}

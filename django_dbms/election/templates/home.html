@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block rightlist %}
+<li><a href="{% url 'login' %}">
+  <span class="glyphicon glyphicon-log-in"></span>
+  Login</a></li>
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid" id="wrap">
+    <article id="art">
+        <h1>Welcome to MangoDB</h1>
+        <p style="font-size: larger;">MangoDB is an online voting system, It is build to make election process safe
+            and easy!</p>
+    </article>
+    <div class="container">
+        <!-- <h1>Announcements</h1> -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="thumbnail"><a><img src="{% static 'images/voter.png' %}" alt="Thumbnail Image 1"
+                            class="imgfill"></a>
+                    <div class="caption">
+                        <h3>Current &amp; Upcoming Elections</h3>
+                        <p>Check out the election time of your constituency</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail"><a><img src="{% static 'images/results.jpg'%}" alt="Thumbnail Image 1"
+                            class="imgfill"></a>
+                    <div class="caption">
+                        <h3>Analyze through past statistics</h3>
+                        <p>Check out the statistics of past elections held so far!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail"><a href="{% url 'register' %}"><img
+                            src="{% static 'images/Click-here-to-register-online.gif'%}" alt="Thumbnail Image 1"
+                            class="imgfill"></a>
+                    <div class="caption">
+                        <h3>Have you registered yet?</h3>
+                        <p>Proceed for the registeration page while the elections are still open!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail"><a><img src="{% static 'images/Image-10 (1).jpg' %}" alt="Thumbnail Image 1"
+                            class="imgfill"></a>
+                    <div class="caption">
+                        <h3>Know your candidates</h3>
+                        <p>Choose your representative wisely. Find out here whether they are the right
+                            representative of your
+                            cause and society!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

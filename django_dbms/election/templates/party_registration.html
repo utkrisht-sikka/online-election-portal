@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- background image By A.Savin (Wikimedia Commons · WikiPhotoSpace) - Own work, FAL, https://commons.wikimedia.org/w/index.php?curid=49129197 -->
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'css/candidate_party_regstyle.css'%}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content%}
+<div class="container">
+            <div class="login-box center">
+                <div id="account-attributes-challenge" class="">
+                    <h1 class="txt-align-center header-text"> Fill your data</h1>
+              
+            
+                    <form id="regform" action="https://login.yahoo.com/account/create?.intl=in&amp;.lang=en-IN&amp;src=ym&amp;specId=yidreg&amp;activity=uh-mail&amp;pspid=97684142&amp;.done=https%3A%2F%2Fmail.yahoo.com%2Fd%3F.intl%3Din%26.lang%3Den-IN%26.partner%3Dnone%26.src%3Dfp%26activity%3Duh-mail%26pspid%3D97684142&amp;done=https%3A%2F%2Fmail.yahoo.com%2Fd%3F.intl%3Din%26.lang%3Den-IN%26.partner%3Dnone%26.src%3Dfp%26activity%3Duh-mail%26pspid%3D97684142&amp;intl=in&amp;context=reg" class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post" novalidate="">
+                     
+                    
+                    
+
+                    <fieldset>
+                        <div id="usernamereg-fullname" class="pure-g name-field field-group  ">
+                            <div class="first-name pure-u-1-2">
+                                <input type="text" id="usernamereg-firstName" class="ureg-fname input-with-icon icon-name " autocomplete="given-name" name="firstName" placeholder="name" aria-label="First&nbsp;name" value="" maxlength="32" aria-required="true">
+                                <div id="reg-error-firstName"></div>
+                            </div>
+                             
+                        </div>
+                    </fieldset>
+                
+                    <div class="password-field ">
+                        <input type="password" id="usernamereg-password" autocomplete="new-password" name="password" placeholder="Password" aria-label="Password" maxlength="128" aria-required="true" aria-invalid="false" class="">
+                        
+                        <div id="reg-error-password" data-error="" class=""></div>
+                    </div>
+                    
+                       <h1> Upload your preferred party Symbol</h1>
+                      <input type="file" id="myFile" name="Verification doc"  placeholder="Verification doc">
+
+                    
+
+                 
+                    <div class="cta-container">
+                        <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">Submit</button>
+                    </div>
+                         
+                    </form>
+                </div>
+            </div>
+        </div>
+<!-- <h1>Announcements</h1> -->
+{%endblock%}

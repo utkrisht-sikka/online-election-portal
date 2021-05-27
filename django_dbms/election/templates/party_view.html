@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- background image By A.Savin (Wikimedia Commons · WikiPhotoSpace) - Own work, FAL, https://commons.wikimedia.org/w/index.php?curid=49129197 -->
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'css/voter_view1.css'%}" rel="stylesheet" type="text/css">
+
+{% endblock %}
+{% block rightlist %}
+<li>
+    <a href="{% url 'home' %}">
+        <span class="glyphicon glyphicon-log-out"></span>
+        Logout
+        <!-- <img  class="icon1" src="{% static 'images/log-out.PNG' %}" width="40" height="40"> -->
+    </a>
+</li>
+{% endblock %}
+{% block leftlist %}
+<li><a> Party Details</a></li>
+<li><a>Registered Candidate</a></li>
+<li><a>Update Party Details</a></li>
+<li><a>Update Party Manifesto</a></li>
+{% endblock %}
+
+{%block content%}
+
+
+<div class="container-fluid" id="wrap">
+
+
+    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  </span> -->
+    <!-- credits https://codepen.io/jkantner/pen/rNaPadg -->
+    <h1>party_detils will be add here</h1>
+
+    <!-- xxxxxxxxxxxxx -->
+</div>
+
+<script src="{% static 'js/voter_official.js' %}"></script>
+{%endblock%}

@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- background image By A.Savin (Wikimedia Commons · WikiPhotoSpace) - Own work, FAL, https://commons.wikimedia.org/w/index.php?curid=49129197 -->
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'css/voter_official_regstyle.css'%}" rel="stylesheet" type="text/css">
+{% endblock %}
+{%block content%}
+ <!-- <div id="mySidenav" class="sidenav">
+      <a  class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="{% url 'register'%}">Register as voter</a> -->
+      <!-- <a href="{% static 'official_registration.html'%}">Register as official</a> -->
+  
+<!-- </div> -->
+<div class="container">
+    <div class="login-box center">
+        <div id="account-attributes-challenge" class="">
+            <h1 class="txt-align-center header-text"> Fill your data</h1>
+
+
+            <form id="regform"
+                action="{% url 'register' %}"
+                class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post"
+                novalidate="">
+{% csrf_token %}
+
+
+
+                <fieldset>
+                    <div class="first-name pure-u-1-2">
+                            <input type="text" id="usernamereg-firstName" class="ureg-fname input-with-icon icon-name "
+                                autocomplete="given-name" name="Username" placeholder="Username"
+                                aria-label="uname" value="" maxlength="32" aria-required="true">
+                            <div id="reg-error-uname"></div>
+                        </div>
+                    <div id="usernamereg-fullname" class="pure-g name-field field-group  ">
+                        <div class="first-name pure-u-1-2">
+                            <input type="text" id="usernamereg-firstName" class="ureg-fname input-with-icon icon-name "
+                                autocomplete="given-name" name="firstName" placeholder="First&nbsp;name"
+                                aria-label="First&nbsp;name" value="" maxlength="32" aria-required="true">
+                            <div id="reg-error-firstName"></div>
+                        </div>
+                        <div class="last-name pure-u-1-2">
+                            <input type="text" id="usernamereg-lastName" class="ureg-lname " name="lastName"
+                                placeholder="Lastname" value="" maxlength="32" aria-required="true"
+                                aria-invalid="false">
+                            <div id="reg-error-lastName" data-error=""></div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="password-field ">
+                    <input type="password" id="usernamereg-password" autocomplete="new-password" name="password"
+                        placeholder="Password" aria-label="Password" maxlength="128" aria-required="true"
+                        aria-invalid="false" class="">
+
+                    <div id="reg-error-password" data-error="" class=""></div>
+                </div>
+
+
+
+                <div class="">
+                    <input type="tel" pattern="[0-9-() ]*" id="usernamereg-phone" name="phone"
+                        class="input-with-icon icon-phone phone-no " value="" aria-required="true" role="textbox"
+                        aria-multiline="false" placeholder="Mobile phone&nbsp;number"
+                        aria-label="Mobile phone&nbsp;number">
+                    <div id="reg-error-phone"></div>
+                </div>
+
+                <div class="pure-g usernamereg-birthdate" name="birthDate" aria-invalid="false">
+                    <div id="usernamereg-birthDate" class="pure-u-1-2 reg-month puree-dropdown dropdown">
+                        <select name="mm" id="usernamereg-month" aria-required="true">
+                            <option value="" selected="" disabled="">Birth&nbsp;month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="pure-u-1-4 reg-day">
+                        <input type="tel" pattern="[0-9-() ]*" id="usernamereg-day" name="dd" value=""
+                            aria-required="true" role="textbox" aria-multiline="false" placeholder="Day"
+                            aria-label="Birthday" minlength="1" maxlength="2">
+                    </div>
+                    <div class="pure-u-1-4 reg-year">
+                        <input type="tel" pattern="[0-9-() ]*" id="usernamereg-year" name="yyyy" value=""
+                            aria-required="true" role="textbox" aria-multiline="false" placeholder="Year"
+                            aria-label="Birthday" minlength="1" maxlength="4">
+                    </div>
+
+                </div>
+                <div id="usernamereg-birthDate" class="pure-u-1-2 reg-month puree-dropdown dropdown">
+                    <select name="mm" id="usernamereg-month" aria-required="true">
+                        <option value="" selected="" disabled="">gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Other</option>
+                    </select>
+                    <div class="arrow"></div>
+                </div>
+                <input type="text" value="" aria-required="true" placeholder="Income" autocomplete="off">
+                <input type="text" value="" aria-required="true" placeholder="Religion" autocomplete="off"><input
+                    type="text" value="" aria-required="true" placeholder="Education_Status" autocomplete="off">
+<br/>
+                
+
+                <!--   <p class="m-t-24px tos">
+                    By clicking "Continue", you agree to the <a href="https://www.verizonmedia.com/policies/in/en/verizonmedia/terms/otos/index.html" data-rapid-tracking="true" data-ylk="subsec:toslink;elm:link;elmt:terms;slk:terms;mKey:registration-terms" class="termsLink" target="_blank">Terms <strong class="tos-updated"></strong></a> and <a href="https://www.verizonmedia.com/policies/in/en/verizonmedia/privacy/index.html" data-rapid-tracking="true" data-ylk="subsec:toslink;elm:link;elmt:privacy;slk:privacy;mKey:registration-privacy" class="privacyLink" target="_blank">Privacy&nbsp;Policy <strong class="tos-updated"></strong></a>
+            </p> -->
+<hr>
+                <div class="cta-container">
+                    <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true"
+                        data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue"
+                        class="pure-button puree-button-primary puree-spinner-button">Submit</button>
+                </div>
+
+                <input type="hidden" data-name="alt-submit">
+            </form>
+        </div>
+    </div>
+    <!-- <h1>Announcements</h1> -->
+
+
+
+
+</div>
+<!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  </span> -->
+<script src="{% static 'js/voter_official.js' %}"></script>
+{%endblock%}

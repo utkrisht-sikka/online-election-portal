@@ -1,0 +1,14 @@
+1. All registrations(person, voter, candidate, ec official, verification official)
+2. Start time feature of EC official
+3. Calculation of votes button.
+4. Candidate profiles page.
+
+Calculation of votes requires this script
+select x.Election_ID ,x.constituency_id, maxvotes, Stands_From.id 
+from 
+( select Election_ID, constituency_id, max(Votes_Won) as maxvotes 
+from Stands_From 
+where Election_ID<5 group  by constituency_id, Election_ID) as x
+inner join Stands_From on Stands_From.Votes_Won = x.maxvotes and x.constituency_id = Stands_From.constituency_id and Stands_From.Election_ID = x.Election_ID
+where x.Election_ID < 5
+group by x.constituency_id,x.Election_ID;

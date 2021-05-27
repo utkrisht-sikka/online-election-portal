@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'css/showresult.css' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/showresult.js' %}"></script>
+{% endblock %}
+
+{% block rightlist %}
+<li><a href="{% url 'home' %}"> <span class="glyphicon glyphicon-home"></span>Home</a>
+</li>
+{% endblock %}
+{% block content %}
+<div class ="result">
+    <section>
+        <h1>{{electionName}} Result</h1>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>Const ID</th>
+                        <th>Const Name</th>
+                        <th>Region</th>
+                        <th>Winning Candidate</th>
+
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    {% for key in table %}
+                    <tr>
+                        {% for value in key %}
+                        <td>{{value}}</td>
+
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock%}

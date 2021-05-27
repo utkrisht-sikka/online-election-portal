@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'css/login.css'%}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/showpassword.js'%}"></script>
+{% endblock %}
+{% block content %}
+
+<div class="login-form">
+    <form class="box" action="{% url 'login' %}" , method="post">
+       {% csrf_token %}
+        <h1>Login</h1>
+
+        <input type="text" name="username" placeholder="username" required>
+        <input type="password" name="password" placeholder="password" required id="login-pass">
+        <input type="checkbox" onclick="show_password()"><label style="color:whitesmoke;">Show Password</label>
+        <input type="submit" name="submit" value="Login">
+        Not a member? <a href="{% url 'reg_person'%}">Register Here!</a>
+    </form>
+</div>
+{% endblock%}

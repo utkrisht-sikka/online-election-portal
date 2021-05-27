@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %}
+<link href="{% static 'css/cand_profilestyle.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/ajax-utils.js' %}"></script>
+<script src="{% static 'js/script.js'%}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="wrap">
+    <div class="mod_team_header">
+        <div class="search-alphabet">
+            YEAR-
+            <a> 2020 </a>
+            <a> 2015 </a>
+            <a> 2013 </a>
+            <a> 2008 </a>
+            <a> 2003 </a>
+
+        </div>
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="0" max="1000 " value="50" class="slider" id="myRange">
+    </div>
+
+    Slide to adjust wealth of candidates to be searched Rs.<span id="demo">
+    </span>00000
+
+    <table>
+        <tbody>
+            <tr>
+                <td class="left-side">First_Name</td>
+                <td class="right-side">Shikhar </td>
+                <td class="left-side">
+                    Last_Name
+                </td>
+                <td class="right-side">
+                    Dhawan
+                </td>
+            </tr>
+            <tr>
+                <td class="left-side">
+                    Date_Of_Birth
+                </td>
+                <td class="right-side">
+                    35 Years, 3 Months, 10 Days
+
+                </td>
+                <td class="left-side">
+                    Religion
+                </td>
+                <td class="right-side">
+                    Hindu
+
+                </td>
+            </tr>
+            <tr>
+                <td class="left-side">
+                    Education_Status
+                </td>
+                <td class="left-side">
+                    PHD
+                </td>
+                <td class="left-side">
+                    Gender
+                </td>
+                <td class="left-side">
+                    Male
+                </td>
+
+
+            </tr>
+
+            <tr>
+                <td class="left-side">
+                    Wealth
+                </td>
+                <td class="right-side">
+                    1,000,000,000
+                </td>
+                <td class="left-side">
+                    Profession
+                </td>
+                <td class="right-side">
+                    Crickter
+                </td>
+            </tr>
+
+            <tr>
+                <td class="left-side">
+                    Criminal_Cases
+                </td>
+                <td class="right-side">
+                    none
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock%}

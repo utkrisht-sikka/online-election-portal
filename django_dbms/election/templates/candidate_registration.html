@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load static %}
+
+{% block extrahead %}
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/regstyle.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block rightlist %}
+<li>    
+    <a href="{% url 'home' %}">
+        <span class="glyphicon glyphicon-log-out"></span>
+        Logout
+    <!-- <img  class="icon1" src="{% static 'images/log-out.PNG' %}" width="40" height="40"> -->
+    </a>
+</li>
+{% endblock %}
+{% block leftlist %}
+<li><a href="{% url 'voter_view1' id %}"> Cast vote</a></li>
+<li><a href="{% url 'voter_view2' id %}">Personal Details</a></li>
+<li><a href="{% url 'reg_cand' id%}">Candidate</a></li>
+<li><a href="{% url 'voter_view3' id %}">Wealth Update</a></li>
+
+{% endblock %}
+
+{% block content %}
+ <!-- <div id="mySidenav" class="sidenav">
+  <a   class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{% url 'voter_view1' id %}"> Cast vote</a>
+  <a href="{% url 'voter_view2' id %}">Personal Details</a>
+  <a href="{% url 'reg_cand' id %}">Candidate</a>
+  <a href="{% url 'voter_view3' id %}">Wealth Update</a>
+  
+</div> -->
+<div class="container">
+   
+    <div class="login-box center">
+        <div id="account-attributes-challenge" class="">
+            <h1 class="txt-align-center header-text"> Fill your data</h1>
+
+
+            <form id="regform"
+                action="https://login.yahoo.com/account/create?.intl=in&amp;.lang=en-IN&amp;src=ym&amp;specId=yidreg&amp;activity=uh-mail&amp;pspid=97684142&amp;.done=https%3A%2F%2Fmail.yahoo.com%2Fd%3F.intl%3Din%26.lang%3Den-IN%26.partner%3Dnone%26.src%3Dfp%26activity%3Duh-mail%26pspid%3D97684142&amp;done=https%3A%2F%2Fmail.yahoo.com%2Fd%3F.intl%3Din%26.lang%3Den-IN%26.partner%3Dnone%26.src%3Dfp%26activity%3Duh-mail%26pspid%3D97684142&amp;intl=in&amp;context=reg"
+                class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post"
+                novalidate="">
+                <fieldset>
+                    <div id="usernamereg-fullname" class="pure-g name-field field-group  ">
+                        <div class="first-name pure-u-1-2">
+                            <input type="text" id="usernamereg-firstName" class="ureg-fname input-with-icon icon-name "
+                                autocomplete="given-name" name="firstName" placeholder="VoterID"
+                                aria-label="First&nbsp;name" value="" maxlength="32" aria-required="true">
+                            <div id="reg-error-firstName"></div>
+                        </div>
+                        <div class="last-name pure-u-1-2">
+                            <input type="text" id="usernamereg-lastName" class="ureg-lname " name="lastName"
+                                placeholder="Constituency" value="" maxlength="32" aria-required="true"
+                                aria-invalid="false">
+                            <div id="reg-error-lastName" data-error=""></div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="last-name pure-u-1-2">
+                    <input type="text" id="usernamereg-lastName" class="ureg-lname " name="lastName"
+                        placeholder="Political Party" value="" maxlength="32" aria-required="true" aria-invalid="false">
+                    <div id="reg-error-lastName" data-error=""></div>
+                </div>
+                <div class="last-name pure-u-1-2">
+                    <input type="text" id="usernamereg-lastName" class="ureg-lname " name="lastName"
+                        placeholder="Manifesto" value="" maxlength="1000" aria-required="true" aria-invalid="false">
+                    <div id="reg-error-lastName" data-error=""></div>
+                </div>
+                <h1> Upload your criminal Record</h1>
+                <input type="file" id="myFile" name="CriminalRecord" placeholder="CriminalRecord">
+
+
+
+                <!--   <p class="m-t-24px tos">
+                    By clicking "Continue", you agree to the <a href="https://www.verizonmedia.com/policies/in/en/verizonmedia/terms/otos/index.html" data-rapid-tracking="true" data-ylk="subsec:toslink;elm:link;elmt:terms;slk:terms;mKey:registration-terms" class="termsLink" target="_blank">Terms <strong class="tos-updated"></strong></a> and <a href="https://www.verizonmedia.com/policies/in/en/verizonmedia/privacy/index.html" data-rapid-tracking="true" data-ylk="subsec:toslink;elm:link;elmt:privacy;slk:privacy;mKey:registration-privacy" class="privacyLink" target="_blank">Privacy&nbsp;Policy <strong class="tos-updated"></strong></a>
+            </p> -->
+                <div class="cta-container">
+                    <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true"
+                        data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue"
+                        class="pure-button puree-button-primary puree-spinner-button">Submit
+                    </button>
+                </div>
+
+                <input type="hidden" data-name="alt-submit">
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="{% static 'js/voter_official.js' %}"></script>
+
+{%endblock%}

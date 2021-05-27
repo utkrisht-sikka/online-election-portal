@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'css/result.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block rightlist %}
+<li><a href="{% url 'login' %}">
+                <span class="glyphicon glyphicon-log-in"></span>
+                Login</a></li>
+{% endblock %}
+{% block content %}
+<div class="selection">
+        <form action="" method="post">
+                {% csrf_token %}
+                <select name="option" class="button" id="opt">
+                        {% for opt in options%}
+                        <option value="{{opt}}">{{opt}}</option>
+                        {%endfor%}
+                        <!-- etc -->
+                </select>
+                <!-- <br> -->
+                <input type="submit" class="button" name="submit" style="margin-top: 10px;"></input>
+        </form>
+</div>
+{% endblock%}

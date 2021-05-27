@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- background image By A.Savin (Wikimedia Commons · WikiPhotoSpace) - Own work, FAL, https://commons.wikimedia.org/w/index.php?curid=49129197 -->
+{% block extrahead %}
+<link href="{% static 'css/regstyle.css'%}" rel="stylesheet" type="text/css">
+
+<script >
+function SelectRedirect() {
+    // ON selection of section this function will work
+    //alert( document.getElementById('s1').value);
+
+    switch (document.getElementById('s1').value) {
+        case "voter":
+            window.location = "{% url 'register' %}";
+            break;
+
+        case "candidate":
+            window.location = "{% url 'reg_cand'%}";
+            break;
+
+        case "party":
+            window.location = "{% url 'register_party'%}";
+            break;
+        case "official":
+            window.location = "{% url 'register_official'%}";
+            break;
+
+        /// Can be extended to other different selections of SubCategory //////
+        default:
+            // window.location = "{% url 'home'%}"; // if no selection matches then redirected to home page
+            break;
+    }// end of switch 
+}
+
+
+</script>
+{%endblock%}
+
+{%block content%}
+<div class="container">
+    <div class="login-box center">
+        <div id="account-attributes-challenge" class="">
+            <h1 class="txt-align-center header-text"> Role Selection</h1>
+
+
+            <form id="regform"
+                action="https://login.yahoo.com/account/create?.intl=in&amp;.lang=en-IN&amp;src=ym&amp;specId=yidreg&amp;activity=uh-mail&amp;pspid=97684142&amp;.done=https%3A%2F%2Fmail.yahoo.com%2Fd%3F.intl%3Din%26.lang%3Den-IN%26.partner%3Dnone%26.src%3Dfp%26activity%3Duh-mail%26pspid%3D97684142&amp;done=https%3A%2F%2Fmail.yahoo.com%2Fd%3F.intl%3Din%26.lang%3Den-IN%26.partner%3Dnone%26.src%3Dfp%26activity%3Duh-mail%26pspid%3D97684142&amp;intl=in&amp;context=reg"
+                class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post"
+                novalidate="">
+
+
+
+
+                <fieldset>
+
+<label class="con field-group">
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"> </span>
+Voter</label>
+
+<br>
+<button type="button" class="collapsible">Staff Roles
+<i style="position:relative;float:right" class="arrow down"></i></p>
+
+</button>
+<div class="content">
+<br>
+<label class="con1"> Verification Official
+
+
+  <input type="radio" checked="checked" name="radio">
+  <span class="checmark"></span>
+</label>
+<label class="con1">Admin Official
+  <input type="radio" name="radio">
+  <span class="checmark"></span>
+</label>
+<label class="con1">EC Official
+  <input type="radio" name="radio">
+  <span class="checmark"></span>
+</label>
+
+
+</div>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}</script>
+<hr>
+                                 <div class="cta-container">
+                    <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true"
+                        data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue"
+                        class="pure-button puree-button-primary puree-spinner-button">Submit</button>
+                </div>
+
+                <input type="hidden" data-name="alt-submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

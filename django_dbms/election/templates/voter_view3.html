@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- background image By A.Savin (Wikimedia Commons · WikiPhotoSpace) - Own work, FAL, https://commons.wikimedia.org/w/index.php?curid=49129197 -->
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'css/voter_view3.css'%}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block rightlist %}
+<li>    
+    <a href="{% url 'home' %}">
+        <span class="glyphicon glyphicon-log-out"></span>
+        Logout
+    <!-- <img  class="icon1" src="{% static 'images/log-out.PNG' %}" width="40" height="40"> -->
+    </a>
+</li>
+{% endblock %}
+{% block leftlist %}
+<li><a href="{% url 'voter_view1' id %}"> Cast vote</a></li>
+<li><a href="{% url 'voter_view2' id %}">Personal Details</a></li>
+<li><a href="{% url 'reg_cand' id %}">Candidate</a></li>
+<li><a href="{% url 'voter_view3' id %}">Wealth Update</a></li>
+
+{% endblock %}
+
+{% block content%}
+
+<!-- <div id="mySidenav" class="sidenav">
+  <a   class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{% url 'voter_view1' id %}"> Cast vote</a>
+  <a href="{% url 'voter_view2' id %}">Personal Details</a>
+  <a href="{% url 'reg_cand' id %}">Candidate</a>
+  <a href="{% url 'voter_view3' id %}">Wealth/Profession Update</a>
+
+</div> -->
+<div class="container-fluid" id="wrap">
+    
+    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  </span> -->
+    <div class="container">
+        <div class="login-box center">
+            <div id="account-attributes-challenge" class="">
+                <h1 class="txt-align-center header-text"> Fill wealth in Rs. for {{year}} and press update </h1>
+          
+        
+                <form id="regform" action="{% url 'voter_view3' id %}" class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post" novalidate="">
+{% csrf_token %}  
+                 
+     
+               
+                
+                 
+                 <input type="text" name="weal" value="{{wealth}}"  aria-required="true"    placeholder="Wealth" autocomplete="off"> 
+                  
+                 <!-- <input type="text" value=""  aria-required="true"    placeholder="Profession" autocomplete="off">  -->
+                   
+                 
+      
+    
+
+               <div class="cta-container">
+                    <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">Update
+                    </button>
+                </div>
+
+               
+                
+         
+                <input type="hidden" data-name="alt-submit"></form>
+            </div>
+        </div>  
+    </div>
+</div>
+   
+<script src="{% static 'js/voter_official.js' %}"></script>
+{%endblock%}
